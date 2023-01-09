@@ -2,7 +2,7 @@
 
 Omega is the project for Upload your videos. Streaming made easy.
 
-- the site puplish on: [https://capable-conkies-4bf443.netlify.app/home](https://capable-conkies-4bf443.netlify.app/)
+- the site puplish on: [open Omega](https://capable-conkies-4bf443.netlify.app/)
 
 ## 📝 Papar Information
 
