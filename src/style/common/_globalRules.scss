@@ -1,0 +1,249 @@
+@use "./variable" as v;
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+  position: relative;
+  z-index: 1200;
+  @at-root html[dir="rtl"] body {
+    font-family: "Tajawal", sans-serif;
+  }
+  caret-color: v.$main_color;
+}
+
+button {
+  cursor: pointer;
+}
+button,
+img {
+  user-select: none;
+}
+button.change-lang {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // border: 1px solid #7a94a5;
+  // border-radius: 8px;
+  // padding: 3px 4px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 16px;
+  line-height: 1;
+  color: #7a94a5;
+  // margin: auto;
+  display: none;
+  &.desktop {
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+  &.mobile {
+    @media (max-width: 767.98px) {
+      display: block;
+    }
+  }
+  @media (max-width: 767.98px) {
+    font-size: 14px;
+  }
+  @media (max-width: 767.98px) and (max-width: 991.98px) {
+    font-size: 15px;
+  }
+  @at-root html[dir="rtl"]
+      nav.nav-links
+      div.list-box
+      ul.list-ul
+      button.change-lang {
+    @media (max-width: 991.98px) {
+      font-size: 14px !important;
+    }
+  }
+}
+$delayEn: 0s;
+$duration: 0.27s;
+$cardNums: 7;
+@for $var from 1 through 7 {
+  div.show-cards.card#{$var} {
+    opacity: 0;
+    animation: show-cards $duration $delayEn both;
+  }
+  $delayEn: $delayEn + $duration;
+}
+
+$delayAr: 0s;
+@for $var from 1 through 7 {
+  div.show-cards-ar.card#{$var} {
+    opacity: 0;
+    animation: show-cards-ar $duration $delayAr both;
+  }
+  $delayAr: $delayAr + $duration;
+}
+
+img.feature-anim1 {
+  animation: anim-up-down1 2.4s linear 0.4s infinite alternate both;
+}
+img.feature-anim2 {
+  animation: anim-up-down2 3s linear 0.8s infinite alternate both;
+}
+img.feature-anim3 {
+  animation: anim-up-down3 2.4s linear 0.12s infinite alternate both;
+}
+@keyframes anim-up-down1 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translate(-40px, -40px);
+  }
+}
+@keyframes anim-up-down2 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translate(40px, -40px);
+  }
+}
+@keyframes anim-up-down3 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translate(40px, 40px);
+  }
+}
+
+@keyframes italic-normal {
+  0% {
+    transform: skew(-15deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+@keyframes up-p-header {
+  0% {
+    opacity: 20%;
+    transform: translateY(-30%);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(0%);
+  }
+}
+@keyframes show-opacity {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes showup {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes width-load {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes show-cards {
+  0% {
+    opacity: 0%;
+    transform: translateX(-30%);
+  }
+  100% {
+    opacity: 100%;
+    transform: translate(0);
+  }
+}
+@keyframes show-cards-ar {
+  0% {
+    opacity: 0%;
+    transform: translateX(30%);
+  }
+  100% {
+    opacity: 100%;
+    transform: translate(0);
+  }
+}
+
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+}
+/* small */
+@media (max-width: 767.9px) {
+  .container {
+    width: 357px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.container-wrapped {
+  padding: 0 15px;
+  margin: 0 auto;
+}
+/* small */
+@media (max-width: 767.9px) {
+  .container-wrapped {
+    width: 375px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-wrapped {
+    width: 976px;
+  }
+}
+/* medium */
+@media (min-width: 992px) {
+  .container-wrapped {
+    width: 1094px;
+  }
+}
+/* large */
+@media (min-width: 1200px) {
+  .container-wrapped {
+    width: 1358px;
+  }
+}

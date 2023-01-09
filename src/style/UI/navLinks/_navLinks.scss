@@ -1,0 +1,222 @@
+@use "../../common/variable" as v;
+@use "../../common/mixin" as m;
+
+nav.nav-links {
+  height: 71px;
+  position: relative;
+  z-index: 3;
+  background-color: #ffffff;
+  &.scroll {
+    box-shadow: 0 0 8px 0 rgba(204, 204, 204, 0.404);
+    position: sticky;
+    top: 0;
+    @media (max-width: 767.98px) {
+      position: relative;
+    }
+  }
+  div.container {
+    @media (max-width: 767.98px) {
+      padding: 0;
+    }
+    div.nav-box {
+      padding-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: auto;
+      div.logo-box {
+        width: 108px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        @media (max-width: 767.98px) {
+          width: 100%;
+          justify-content: space-between;
+        }
+        div.logo-img {
+          width: 40px;
+          cursor: pointer;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        i {
+          display: none;
+          font-size: 27px;
+          color: #1d3c51;
+          @media (max-width: 767.98px) {
+            display: block;
+          }
+        }
+      }
+
+      div.list-box {
+        flex-grow: 1;
+        background-color: v.$white_color;
+        border-radius: 15px;
+        @media (max-width: 767.98px) {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 100%;
+          text-align: center;
+          padding-left: 15px;
+          padding-right: 15px;
+          transform: translateY(100%) translateX(-50%);
+          // box-shadow: 0 3px 0 1px rgba(204, 204, 204, 0.494);
+          // width: calc(100% + 30px);
+          // padding: 5px 28px;
+          border-radius: 15px;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          max-width: 357px;
+          height: 0;
+          overflow: hidden;
+          transition: height 0.3s;
+          &.active {
+            height: 175px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border: 1px solid rgba(204, 204, 204, 0.539) {
+              top: none;
+            }
+          }
+        }
+        @at-root html[dir="rtl"] nav.nav-links div.list-box ul.list-ul {
+          @media (max-width: 767.98px) {
+            left: auto !important;
+            right: 50%;
+          }
+        }
+        ul.list-ul {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 30px;
+          list-style: none;
+          margin: 0;
+          padding: 0 15px;
+          @media (max-width: 767.98px) {
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0;
+            gap: 10px;
+          }
+          @at-root html[dir="rtl"] nav.nav-links div.list-box ul.list-ul {
+            @media (max-width: 767.98px) {
+              gap: 11px !important;
+            }
+            @media (min-width: 767.98px) and (max-width: 991.98px) {
+              gap: 16px !important;
+            }
+          }
+          li.list-item {
+            a.list-item {
+              text-decoration: none;
+              color: v.$sec_color;
+              font-weight: 700;
+              font-size: 19px;
+              white-space: pre;
+              word-wrap: break-word;
+              position: relative;
+              &::after {
+                content: "";
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 3px;
+                background-color: #00c7ff;
+                transition: width 0.3s;
+                @at-root html[dir="rtl"]
+                    nav.nav-links
+                    div.container
+                    div.nav-box
+                    div.list-box
+                    ul.list-ul
+                    li.list-item
+                    a.list-item::after {
+                  left: auto !important;
+                  right: 0;
+                }
+              }
+              &:hover,
+              &.active {
+                &::after {
+                  width: 35%;
+                }
+              }
+              @media (max-width: 767.98px) {
+                font-size: 15px;
+              }
+              @media (min-width: 767.98px) and (max-width: 991.98px) {
+                font-size: 18px;
+              }
+              @at-root html[dir="rtl"]
+                  nav.nav-links
+                  div.list-box
+                  ul.list-ul
+                  li.list-item
+                  a.list-item {
+                @media (max-width: 991.98px) {
+                  font-size: 13px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      div.sign-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        @media (max-width: 767.98px) {
+          gap: 0;
+        }
+        button {
+          border: none;
+          outline: none;
+        }
+        button.login {
+          background-color: transparent;
+          font-weight: bold;
+          font-size: 18px;
+          white-space: pre;
+          word-wrap: break-word;
+          @media (max-width: 767.98px) {
+            padding: 0 10px;
+            font-size: 15px;
+          }
+          @at-root html[dir="rtl"] nav.nav-links div.container div.nav-box {
+            div.sign-box button.login {
+              @media (max-width: 767.98px) {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+
+        button.sign-out {
+          background-color: v.$main_color;
+          color: v.$white_color;
+          border-radius: 11px;
+          padding: 8px 26px;
+          font-size: 18px;
+          // font-size: 18px;
+          // padding: 9px 37px;
+          white-space: pre;
+          word-wrap: break-word;
+          @media (max-width: 767.98px) {
+            padding: 6px 16px;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
