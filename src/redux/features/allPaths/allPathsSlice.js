@@ -4,11 +4,13 @@ const initialState = {
     home: "/home",
     pricing: "/pricing",
     contactUs: "/contactus",
+    aboutUs: "/aboutus",
   },
   footerPaths: {
     termsOfService: "/termsofservice",
     pricing: "/pricing",
     contactUs: "/contactus",
+    aboutUs: "/aboutus",
   },
 };
 

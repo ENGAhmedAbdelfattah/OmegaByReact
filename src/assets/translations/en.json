@@ -9,7 +9,8 @@
     "navList": [
       "Home",
       "Pricing",
-      "Contact Us"
+      "Contact Us",
+      "About Us"
     ],
     "login": "Login",
     "signUp": "Sign Up"
